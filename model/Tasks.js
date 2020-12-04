@@ -9,6 +9,9 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         taskName: {
+            validate: {
+                notEmpty: true,
+            },
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -17,6 +20,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         project: {
+
             type: DataTypes.UUID,
             allowNull: false
         },

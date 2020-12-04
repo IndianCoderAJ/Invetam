@@ -10,15 +10,24 @@ module.exports = (sequelize, DataTypes) => {
         },
         firstName: {
             type: DataTypes.STRING,
+            validate: {
+                notEmpty: true,
+            },
             allowNull: false,
         },
         lastName: {
+            validate: {
+                notEmpty: true,
+            },
             type: DataTypes.STRING,
             allowNull: false
         },
         email: {
+            validate: {
+                notEmpty: true,
+                isEmail: true,
+            },
             type: DataTypes.STRING,
-            allowNull: false,
             unique: true
         },
         password: {
@@ -32,7 +41,6 @@ module.exports = (sequelize, DataTypes) => {
         isDeleted: {
             type: DataTypes.BOOLEAN,
             defaultValue: false
-                // allowNull: false
         },
     });
     return Users;
